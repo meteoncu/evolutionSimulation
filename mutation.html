@@ -1,0 +1,71 @@
+<script>
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+minGene = 1;
+maxGene = 10;
+
+minDnaLength = 5;
+maxDnaLength = 50;
+
+function newDna(){
+	var dna = [];
+	
+	var start=1, end=1;
+	while(start == end){
+		if(getRandomInt(1,2) == 1){
+			start = getRandomInt(minGene,maxGene);
+			end = getRandomInt(start,maxGene);
+		}else{
+			end = getRandomInt(minGene,maxGene);
+			start = getRandomInt(minGene,end);
+		}
+	}
+	
+	var length = getRandomInt(minDnaLength,maxDnaLength);
+
+	for(var i=0; i<length; i++){
+		dna[i] = getRandomInt(start,end);
+	}
+	
+	return dna;
+}
+/*
+function evolveDna(dna){
+	newDna = [];
+	
+	for(var i=0; i<dna.length; i++){
+		var gene = dna[i];
+		var mutationPossibility = ceil(gene.length / 10);
+		if(Math.random() >= mutationPossibility){
+			var process = getRandomInt(1,3);
+			if(process == 1){
+				gene -= 1;
+				if(gene < min)
+					pass;
+			}else if(process == 2){
+				gene += 1;
+				if(gene > max)
+					pass;
+			}else if(process == 3){
+				pass;
+			}
+		}
+		newDna[newDna.length] = gene;
+	}
+	
+	
+	return newDna;
+}
+*/
+function filter(dna, filter){
+	
+}
+
+var a = newDna();
+alert(a);
+</script>
